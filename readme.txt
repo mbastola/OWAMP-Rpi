@@ -8,23 +8,22 @@
 
 	server xxx.myserver.com
 
-3) Update iptables. Add the following line to iptables and run iptables.
+3) Downlaod owamp_setup.sh file to any directory
 
-	cd /etc/network/if-up.d/	
-	sudo vi iptables
-
-4) Downlaod owamp_setup.sh file to any directory
-
-5) Add root privileges
+4) Add root privileges
 	chmod u+x owamp_setup.sh
 
-6) Run the script
+5) Run the script
 
 	./owamp_setup.sh user
 
 ------------- Optional: -------------------- 
+6) Update iptables. Add the following line to iptables and run iptables.
 
-4) Append these to the iptables (Firewall settings)
+	cd /etc/network/if-up.d/	
+	sudo vi iptables
+
+7) Append these to the iptables (Firewall settings)
 
 	# OWAMP Control (Incoming and Outgoing)
 	iptables -A INPUT -m state --state NEW,ESTABLISHED -m tcp -p tcp --dport 861 -j ACCEPT
