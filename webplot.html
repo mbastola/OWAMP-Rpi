@@ -1,0 +1,52 @@
+<html>
+  
+  <head>
+    <meta charset="UTF-8"> 
+    <link type="text/css" href="/test/js/gnuplot_mouse.css" rel="stylesheet">
+  </head>
+  
+  <body oncontextmenu="return false;">
+    <td align="center">
+      
+      <table class="plot">
+	<tbody><tr>
+	    <td>
+	      <script src="/test/js/canvastext.js"></script>
+	      <script src="/test/js/gnuplot_common.js"></script>
+	      <script src="/test/js/gnuplot_mouse.js"></script>
+	      <script src="output.js"></script>
+	      <canvas id="gnuplot_canvas" width="1000" height="660" onkeypress="gnuplot.do_hotkey()" tabindex="0"></canvas>
+	      <script>
+		gnuplot.grid_lines = true;
+		gnuplot.zoomed = false;
+		gnuplot.active_plot_name = "gnuplot_canvas";
+		gnuplot.active_plot = function(){gnuplot_canvas();};
+		if (window.attachEvent) {window.attachEvent('onload', gnuplot.active_plot);}
+		else if (window.addEventListener) {window.addEventListener('load', gnuplot.active_plot, false);}
+		else {document.addEventListener('load', gnuplot.active_plot, false);}
+	      </script>
+	  </td></tr>
+	  <tr><td>
+	      <table id="gnuplot_mousebox" class="mbunder">
+		<tbody><tr>
+		    <td class="icon" onclick="gnuplot.toggle_grid();"><img src="/test/js/grid.png" id="gnuplot_grid_icon" alt="#" title="toggle grid"></td>
+		    <td class="icon" onclick="gnuplot.unzoom();"><img src="/test/js/previouszoom.png" id="gnuplot_unzoom_icon" alt="unzoom" title="unzoom"></td>
+		    <td class="icon" onclick="gnuplot.rezoom();"><img src="/test/js/nextzoom.png" id="gnuplot_rezoom_icon" alt="rezoom" title="rezoom"></td>
+		    
+		    <td class="icon" onclick="gnuplot.toggle_plot(&quot;funcPlot_plot_1&quot;)">➀</td>
+		    <td class="mb0">x</td>
+		    <td class="mb1"><span id="gnuplot_canvas_x"></span></td>
+		    <td class="mb0">y</td>
+		    <td class="mb1"><span id="gnuplot_canvas_y"></span></td>
+	      </tr></tbody></table>
+	      <br>Note:
+	      <ul><li>Zoom using right (Firefox, Konqueror) or center (Opera, Safari) mouse button
+		</li><li>Mark point using left mouse button
+		</li><li>➀ toggles first plot on/off&nbsp;&nbsp;  # toggles grid on/off
+	      </li></ul>
+	  </td></tr>
+	</tbody>
+      </table>
+    </td>
+  </body>
+</html>
